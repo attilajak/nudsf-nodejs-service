@@ -26,6 +26,7 @@ module.exports.deleteBlock = function deleteBlock (req, res, next, realmId, stor
 module.exports.getBlock = function getBlock (req, res, next, realmId, storageId, recordId, blockId, ifNoneMatch, ifModifiedSince, supportedFeatures) {
   BlockCRUD.getBlock(realmId, storageId, recordId, blockId, ifNoneMatch, ifModifiedSince, supportedFeatures)
     .then(function (response) {
+      var response = '{   "blocks": [     "\"QmxvY2sgY29udGVudA==\"",     "\"QmxvY2sgY29udGVudA==\""   ] }';
       utils.writeJson(res, response);
     })
     .catch(function (response) {
